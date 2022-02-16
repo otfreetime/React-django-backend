@@ -55,8 +55,7 @@ ROOT_URLCONF = 'hello.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'frontend/build')
-        ],
+        'DIRS': [os.path.join(BASE_DIR,'frontend/build')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -64,6 +63,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django_settings_export.settings_export',
             ],
         },
     },
@@ -124,5 +124,21 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR,'frontend/build/static')]
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR,'frontend/build/static'),
+    
+
+]
+
+#REACT_BUILD_DIR = os.path.join( './favicon.ico')
+#REACT_BUILD_DIR = os.path.join( './../../frontend', 'build','favicon.ico')
+REACT_BUILD_DIR = os.path.join(BASE_DIR, 'frontend', 'build','favicon.ico')
+
+SETTINGS_EXPORT = [
+    'REACT_BUILD_DIR',
+]
+
+
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'frontend', 'build', 'static'),]
+# STATICFILES_DIRS = [os.path.join(os.path.join(BASE_DIR, 'frontend'), 'build', 'static'),]
 
