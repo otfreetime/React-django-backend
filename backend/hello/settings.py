@@ -117,28 +117,27 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = "static/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+dirname = os.path.dirname(__file__)
+filename = os.path.join(dirname, 'build')
+
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'frontend/build/static'),
+    os.path.join(BASE_DIR, 'frontend', 'build',  'static'),
+    os.path.join(BASE_DIR, 'frontend', 'build'),
     
 
 ]
 
-#REACT_BUILD_DIR = os.path.join( './favicon.ico')
-#REACT_BUILD_DIR = os.path.join( './../../frontend', 'build','favicon.ico')
-REACT_BUILD_DIR = os.path.join(BASE_DIR, 'frontend', 'build','favicon.ico')
+
+REACT_BUILD_DIR = os.path.join(BASE_DIR, 'frontend', 'build')
 
 SETTINGS_EXPORT = [
-    'REACT_BUILD_DIR',
-]
-
-
-# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'frontend', 'build', 'static'),]
-# STATICFILES_DIRS = [os.path.join(os.path.join(BASE_DIR, 'frontend'), 'build', 'static'),]
+     'REACT_BUILD_DIR',
+ ]
 
