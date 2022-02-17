@@ -21,10 +21,13 @@ from django.views.generic import TemplateView
 # from . import views
 from django.contrib.staticfiles.storage import staticfiles_storage
 from django.views.generic.base import RedirectView
+from .api import router
 
 urlpatterns = [
-    path('api/', include('api.urls')),
+    path('api/v1/', include(router.urls)),
     path('',TemplateView.as_view(template_name='index.html')),
     path('admin/', admin.site.urls),
     path('favicon.ico', RedirectView.as_view(url=staticfiles_storage.url('favicon.ico')))
+    path('api/auth/', include('djoser.urls.authtoken'),
+
 ]

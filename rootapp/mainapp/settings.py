@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'api.apps.ApiConfig',
     'rest_framework',
+    'djoser',
+    'rest_framework.authtoken',
 
 ]
 
@@ -143,3 +145,11 @@ REACT_BUILD_DIR = os.path.join(BASE_DIR, 'frontend', 'build')
 SETTINGS_EXPORT = [
      'REACT_BUILD_DIR',
  ]
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ),
+}
